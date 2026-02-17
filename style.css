@@ -1,0 +1,138 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, sans-serif;
+}
+
+body {
+  background: #000;
+  color: #fff;
+  overflow: hidden;
+  direction: rtl;
+}
+
+/* =========================
+   Center Image (Vertical)
+========================= */
+.center-image {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 5;
+  pointer-events: none;
+}
+
+.center-image img {
+  max-width: 160px;
+  opacity: 0.85;
+}
+
+/* =========================
+   Reels Layout
+========================= */
+.reels {
+  height: 100vh;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+}
+
+/* Reel Card */
+.reel {
+  position: relative;
+  height: 100vh;
+  scroll-snap-align: start;
+  display: flex;
+  align-items: flex-end;
+  padding: 20px;
+  background-size: cover;
+  background-position: center;
+}
+
+.reel::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,.85), rgba(0,0,0,.25));
+}
+
+/* Content */
+.content {
+  position: relative;
+  z-index: 2;
+  max-width: 600px;
+}
+
+.content h2 {
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+}
+
+.content p {
+  font-size: 1rem;
+  line-height: 1.6;
+  opacity: 0.9;
+}
+
+.content a {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 10px 16px;
+  background: #ffcc00;
+  color: #000;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: bold;
+}
+
+/* =========================
+   Loading
+========================= */
+.loading {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #333;
+  border-top: 4px solid #ffcc00;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 10px;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Error */
+.error {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ff4444;
+  font-size: 1.2rem;
+}
+
+.hidden {
+  display: none;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .center-image img {
+    max-width: 120px;
+  }
+
+  .content h2 {
+    font-size: 1.2rem;
+  }
+}
